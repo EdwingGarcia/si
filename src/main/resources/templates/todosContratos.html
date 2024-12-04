@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todos los Contratos</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/styles.css}">
+</head>
+<body>
+<h1>Todos los Contratos</h1>
+
+<!-- Pestaña para ir a la vista de contratos -->
+<a href="/buscar" class="tab">Buscar Contratos</a>
+
+<table>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Nombre del Cliente</th>
+        <th>Monto</th>
+        <th>Descripción</th>
+        <th>Fecha</th>
+    </tr>
+    </thead>
+    <tbody>
+    <th:block th:each="contrato : ${contratos}">
+        <tr>
+            <td th:text="${contrato.id}"></td>
+            <td th:text="${contrato.cliente.nombre}"></td> <!-- Mostrar nombre del cliente -->
+            <td th:text="${contrato.monto}"></td>
+            <td th:text="${contrato.descripcion}"></td>
+            <td th:text="${contrato.fecha}"></td>
+        </tr>
+    </th:block>
+    </tbody>
+</table>
+</body>
+</html>
